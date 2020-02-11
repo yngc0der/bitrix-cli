@@ -1,0 +1,33 @@
+{
+    "name": "yngc0der/bitrix-cli",
+    "description": "Bitrix command line interface",
+    "type": "bitrix-d7-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RG.",
+            "email": "rg.archuser@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/console": "4.1.*",
+        "composer/installers": "~1"
+    },
+    "require-dev": {
+        "composer/composer": "^1.9.3"
+    },
+    "extra": {
+        "installer-name": "cli"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "ComposerScripts::postInstall"
+        ]
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/ComposerScripts.php"
+        ]
+    }
+}
