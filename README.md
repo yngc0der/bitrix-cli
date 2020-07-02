@@ -11,31 +11,21 @@
 ...
 ```
 
-Модуль можно установить в **/local/modules/**:
-```json
-...
-"extra": {
-    "bitrix-dir": "../local"
-},
-...
-```
-
 После этого необходимо выполнить команду `composer require yngc0der/bitrix-cli`, 
 либо добавить вручную пакет "**yngc0der/bitrix-cli**" в ваш composer.json
-и выполнить регистрацию модуля в Bitrix через админку либо запустив скрипт post-install-cmd 
-(`composer run-script post-install-cmd -d {module_install_dir}`).
+и выполнить регистрацию модуля в Bitrix через админку.
 
-После установки в директории `{bitrix-dir}` создасться точка входа для консольных команд.
+После установки, создасться точка входа для консольных команд - `bitrix/tools/cli`.
 
 # Использование
 Пакет позволяет использовать **symfony/console** в контексте Bitrix Framework. 
 Создание команд детально описано в документации (https://symfony.com/doc/current/console.html)
 
 Для получения короткой справки и списка доступных команд выполните в консоли
-`php {bitrix-dir}/cli`
+`php bitrix/tools/cli`
 
 Запустить нужную команду можно, выполнив
-`php {bitrix-dir}/cli command args`. Например, `php local/cli orm:annotate -c -m main`
+`php bitrix/tools/cli command args`. Например, `php bitrix/tools/cli orm:annotate -c -m main`
 
 Для регистрации собственной команды нужно подписаться на событие **OnCommandsLoad** 
 модуля **yngc0der.cli**

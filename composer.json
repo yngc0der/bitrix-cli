@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "symfony/console": "4.1.*",
+        "symfony/console": "3.4.*",
         "composer/installers": "~1"
     },
     "require-dev": {
@@ -19,15 +19,5 @@
     },
     "extra": {
         "installer-name": "cli"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "ComposerScripts::postInstall"
-        ]
-    },
-    "autoload": {
-        "classmap": [
-            "scripts/ComposerScripts.php"
-        ]
     }
 }
