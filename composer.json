@@ -15,7 +15,7 @@
         "symfony/console": "^5.4"
     },
     "require-dev": {
-        "composer/composer": "^1.9.3"
+        "composer/composer": "^2.1.9"
     },
     "extra": {
         "installer-name": "cli"
