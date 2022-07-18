@@ -7,13 +7,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Context;
 use Bitrix\Main\Application;
 use Bitrix\Main\ModuleManager;
-use Bitrix\Main\Localization\Loc;
 
-Loc::loadMessages(__FILE__);
-
-/**
- * Class yngc0der_cli
- */
 class yngc0der_cli extends CModule
 {
     /** @var string */
@@ -45,12 +39,17 @@ class yngc0der_cli extends CModule
         $arModuleVersion = [];
         include __DIR__ . '/version.php';
 
+        $this->MODULE_ID = 'yngc0der.cli';
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
-        $this->MODULE_NAME = Loc::getMessage('YC_CLI_MODULE_NAME');
-        $this->MODULE_DESCRIPTION = Loc::getMessage('YC_CLI_MODULE_DESC');
-        $this->PARTNER_NAME = Loc::getMessage('YC_CLI_PARTNER_NAME');
-        $this->PARTNER_URI = Loc::getMessage('YC_CLI_PARTNER_URI');
+
+        $arModuleInfo = [];
+        include __DIR__ . '/info.php';
+
+        $this->MODULE_NAME = $arModuleInfo['MODULE_NAME'];
+        $this->MODULE_DESCRIPTION = $arModuleInfo['MODULE_DESCRIPTION'];
+        $this->PARTNER_NAME = $arModuleInfo['PARTNER_NAME'];
+        $this->PARTNER_URI = $arModuleInfo['PARTNER_URI'];
     }
 
     /**
@@ -74,7 +73,7 @@ class yngc0der_cli extends CModule
         }
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage('YC_CLI_INSTALL_TITLE'),
+            'Module install',
             $this->getPath() . '/install/step.php'
         );
     }
@@ -91,7 +90,7 @@ class yngc0der_cli extends CModule
 
         if (is_null($request->get('step')) || (int) $request->get('step') === 1) {
             $APPLICATION->IncludeAdminFile(
-                Loc::getMessage('YC_CLI_UNINSTALL_TITLE'),
+                'Module uninstall',
                 $this->getPath() . '/install/unstep.php'
             );
         }

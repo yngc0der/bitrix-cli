@@ -1,9 +1,5 @@
 <?php
-/**
- * @author RG. <rg.archuser@gmail.com>
- */
 
-use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Context;
 
 if (!check_bitrix_sessid()) {
@@ -16,12 +12,14 @@ global $APPLICATION;
 $message = new \CAdminMessage('');
 
 if ($ex = $APPLICATION->GetException()) {
-    $message->ShowMessage(Loc::getMessage('MOD_INST_ERR'));
+    CAdminMessage::ShowMessage('Installation errors:');
 } else {
-    $message->ShowNote(Loc::getMessage('MOD_INST_OK'));
+    CAdminMessage::ShowNote('The module has been installed successfully');
 }
+
+$context = Context::getCurrent();
 ?>
-<form action="<?= Context::getCurrent()->getRequest()->getRequestedPage(); ?>">
-    <input type="hidden" name="lang" value="<?= Context::getCurrent()->getLanguage(); ?>">
-    <input type="submit" name="" value="<?= Loc::getMessage('MOD_BACK'); ?>">
+<form action="<?= $context->getRequest()->getRequestedPage(); ?>">
+    <input type="hidden" name="lang" value="<?= $context->getLanguage(); ?>">
+    <input type="submit" name="" value="Back to List">
 </form>
