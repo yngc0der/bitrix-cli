@@ -6,10 +6,8 @@ if (!check_bitrix_sessid()) {
     return false;
 }
 
-/** @global \CMain $APPLICATION */
+/** @global CMain $APPLICATION */
 global $APPLICATION;
-
-$message = new \CAdminMessage('');
 
 if ($ex = $APPLICATION->GetException()) {
     CAdminMessage::ShowMessage('Installation errors:');

@@ -1,7 +1,4 @@
 <?php
-/**
- * @author RG. <rg.archuser@gmail.com>
- */
 
 use Bitrix\Main\Loader;
 use Symfony\Component\Console\Application;
