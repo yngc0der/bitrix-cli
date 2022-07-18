@@ -1,8 +1,6 @@
 #!/usr/bin/php
+
 <?php
-/**
- * @author RG. <rg.archuser@gmail.com>
- */
 
 $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/yngc0der.cli/cli.php';
